@@ -10,15 +10,29 @@
     // start with strings, numbers and booleans
 
     // Let's say we have an array
-    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+    const ogPlayers = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+    const newPlayers = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+    console.log(ogPlayers)
 
     // and we want to make a copy of it.
 
     // You might think we can just do something like this:
 
+    const team = ogPlayers
+
+    console.log(team)
+
     // however what happens when we update that array?
 
+    team[3] = 'Dave'
+
     // now here is the problem!
+
+    console.log(ogPlayers)
+    console.log(team)
 
     // oh no - we have edited the original array too!
 
@@ -28,11 +42,27 @@
 
     // one way
 
+    const team2 = [...newPlayers]
+
+    console.log(newPlayers)
+    console.log(team2)
+
+    const team3 = Array.from(newPlayers)
+
+    console.log(team3)
+
     // or create a new array and concat the old one in
 
     // or use the new ES6 Spread
 
     // now when we update it, the original one isn't changed
+
+    team2[3] = 'Pete'
+    team3[3] = 'Sven'
+
+    console.log(newPlayers)
+    console.log(team2)
+    console.log(team3)
 
     // The same thing goes for objects, let's say we have a person object
 
@@ -45,6 +75,11 @@
     // and think we make a copy:
 
     // how do we take a copy instead?
+
+    const copiedPerson = Object.assign({}, person, { name: 'Thomas', age: '50', alias: 'The Tank' })
+
+    console.log(person)
+    console.log(copiedPerson)
 
     // We will hopefully soon see the object ...spread
 
